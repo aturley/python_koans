@@ -18,9 +18,14 @@
 #   about_triangle_project_2.py
 #
 def triangle(a, b, c):
-    # DELETE 'PASS' AND WRITE THIS CODE
-    pass
+    if any([a, b, c]) <= 0:
+        raise TriangleError()
+    elif sum([a, b, c]) - max([a, b, c]) <= max([a, b, c]):
+        raise TriangleError()
 
+    return {1: 'equilateral', 
+            2: 'isosceles', 
+            3: 'scalene'}[len(set([a, b, c]))]
 
 # Error class used in part 2.  No need to change this code.
 class TriangleError(StandardError):
